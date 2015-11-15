@@ -1,8 +1,12 @@
-BIN=ut_cgi.out
+BIN 	= ut_cgi.out ut_url.out
+CC 		= g++
+CFLAGS 	= -I ../ -L ../ -lwang
+
 ALL:$(BIN)
 
-ut_cgi.out:
-	g++ ut_cgi.cpp -I../cgi/ ../cgi/cgi_util.o -o $@
+%.out: %.cpp 
+	$(CC) $(CFLAGS) -o $@ $^
+
 .PHONY:clean
 clean:
 	rm -rf $(BIN)
