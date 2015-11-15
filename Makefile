@@ -8,6 +8,8 @@ $(LIB): $(OBJ)
 %.o: %.cpp
 	$(CC) -fPIC -c -o $@ $^
 
-.PHONY: clean
+.PHONY: clean install
+install:
+	install -m 755 $(LIB) /usr/local/lib/
 clean:
 	rm -rf $(LIB) $(OBJ)
